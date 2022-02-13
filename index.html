@@ -7,36 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="less/less.min.js"></script>  -->
     <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
-<script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
-   <!-- <link rel="stylesheets" type="text/css" href="less/styles.css" /> -->
-    
-   
+    <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+    <!-- <link rel="stylesheets" type="text/css" href="less/styles.css" /> -->
+
+
 
     <title>Document</title>
 </head>
 
 <body>
-    <button class="showBtn" onclick="showAddWindow()">Добавить</button>
-    <div class="addwindow hidden">
+    <button class="showBtn">Добавить</button>
+    <div class="addwindow modalwindow hidden">
+        <img src="" height="200px" width="133" class="addwindow-preview">
+        <button class="previewBtn">Превью</button>
         <form action="#">
-            <input type="text" value="Автор" class="addwindow-title" required>
-            <input type="text" value="Название" class="addwindow-author" required>
-            <input type="number" value="1900" class="addwindow-year" required>
+            <input type="text" placeholder="Ссылка на обложку" class="addwindow-cover">
+            <input type="text" placeholder="Автор" class="addwindow-title" required>
+            <input type="text" placeholder="Название" class="addwindow-author" required>
+            <input type="number" placeholder="1900" class="addwindow-year" required>
             <button class="addBtn" onclick="addBook()">Сохранить</button>
         </form>
 
-        <button onclick="hideAddWindow()">Отменить</button>
+        <button class="cancelBtn">Отменить</button>
     </div>
 
 
-    <div class="editwindow hidden">edit
+    <div class="editwindow modalwindow hidden">edit
         <form>
+            <input type="text" value="" class="editwindow-cover">
             <input type="text" value="" class="editwindow-title" required>
             <input type="text" value="" class="editwindow-author" required>
             <input type="text" value="" class="editwindow-year" required>
             <input type="submit" class="saveBtn" value="Сохранить">
         </form>
-        <button onclick="hideEditWindow()">Отменить</button>
+        <button class="cancelBtn">Отменить</button>
     </div>
 
 
@@ -44,7 +48,9 @@
 
     <table class="shelf">
         <tr class="shelf-book">
-            <td class="shelf-book-image"><div class="shelf-book-image-cover"><img src="img/img1.jpg"></div></td>
+            <td class="shelf-book-image">
+                <div class="shelf-book-image-cover"><img src="img/img1.jpg"></div>
+            </td>
             <td class="shelf-book-desc">
                 <h1>Руслан и Людмила</h1>
                 <h2>Пушкин А.С.</h2>
@@ -56,7 +62,9 @@
             </td>
         </tr>
         <tr class="shelf-book">
-            <td class="shelf-book-image"><div class="shelf-book-image-cover"><img src="img/img2.jpg"></div></td>
+            <td class="shelf-book-image">
+                <div class="shelf-book-image-cover"><img src="img/img2.jpg"></div>
+            </td>
             <td class="shelf-book-desc">
                 <h1>Мцыри</h1>
                 <h2>Лермонтов М.Ю.</h2>
