@@ -1,4 +1,5 @@
 
+
 let showAddWindow = () => {
     document.querySelector('.addwindow').classList.remove('hidden');
 }
@@ -16,8 +17,46 @@ let hideEditWindow = () => {
 }
 
 let initDeleteBtn = () => {
-    
+    let deleteBtn = document.getElementsByClassName('shelf-book-opt-delete');
+    for (let i = 0; i < deleteBtn.length; i++) {
+        deleteBtn[i].addEventListener('click', (event) => {
+            event.target.parentNode.parentNode.remove()
+        })
+    }
 }
+
+let initEditBtn = () => {
+    let editBtn = document.getElementsByClassName('shelf-book-opt-edit');
+    for (let i = 0; i < editBtn.length; i++) {
+        editBtn[i].addEventListener('click', (event) => {
+            showEditWindow()
+            let currentTitle = event.target.parentNode.parentNode.children[1].children[0];
+            let currentAuthor = event.target.parentNode.parentNode.children[1].children[1];
+            let currentYear = event.target.parentNode.parentNode.children[1].children[2];
+            document.querySelector('.editwindow-title').value = event.target.parentNode.parentNode.children[1].children[0].innerText;
+            document.querySelector('.editwindow-author').value = event.target.parentNode.parentNode.children[1].children[1].innerText;
+            document.querySelector('.editwindow-year').value = event.target.parentNode.parentNode.children[1].children[2].innerText;
+            
+
+            let saveBtn = document.querySelector('.saveBtn')
+            saveBtn.addEventListener('click', () => {
+                currentTitle.innerText = document.querySelector('.editwindow-title').value;
+                currentAuthor.innerText = document.querySelector('.editwindow-author').value;
+                currentYear.innerText = document.querySelector('.editwindow-year').value;
+                currentTitle = '';
+                currentAuthor = '';
+                currentYear = '';
+                hideEditWindow()
+            })
+        })
+
+
+    }
+}
+
+initDeleteBtn()
+
+initEditBtn()
 
 let addBook = () => {
     let title = document.querySelector('.addwindow-title').value;
@@ -33,62 +72,14 @@ let addBook = () => {
         </td>
         <td class="shelf-book-opt">
             <button class="shelf-book-opt-edit">Редактировать</button>
-            <button class="shelf-book-opt-delete" onclick="deleteBook()">Удалить</button>
+            <button class="shelf-book-opt-delete">Удалить</button>
         </td>
     </tr>`)
 
-        hideAddWindow();
+        hideAddWindow()
 
-        let deleteBtn = document.getElementsByClassName('shelf-book-opt-delete');
-        for (let i = 0; i < deleteBtn.length; i++) {
-            deleteBtn[i].addEventListener('click', (event) => {
-                event.target.parentNode.parentNode.remove()
-            })
-        }
+        initDeleteBtn()
+
+        initEditBtn()
     }
 }
-
-// РАБОТАЕТ ДЛЯ ДОБАВЛЕННЫХ
-/*
-let deleteBook = () => {
-    let table = document.querySelector('.shelf');
-    table.addEventListener('click', (event) => {
-        event.target.parentNode.parentNode.remove();
-    });
-} */
-
-//НЕ РАБОТАЕТ ДЛЯ ДОБАВЛЕННЫХ ТАК КАК ИХ НЕ ВИДИТ DOM
-
-let deleteBtn = document.getElementsByClassName('shelf-book-opt-delete');
-for (let i = 0; i < deleteBtn.length; i++) {
-    deleteBtn[i].addEventListener('click', (event) => {
-        event.target.parentNode.parentNode.remove()
-    })
-}
-
-// РАБОТАЕТ ТОЛЬКО ДЛЯ ПУШКИНА ТАК КАК QUERY SELECTOR ДЛЯ ПЕРВОГО
-
-let editBtn = document.getElementsByClassName('shelf-book-opt-edit');
-//editBtn.forEach(element => {element.addEventListener('click', showEditWindow)});
-for (let i = 0; i < editBtn.length; i++) {
-    editBtn[i].addEventListener('click', showEditWindow)
-}
-
-/* editBtn.addEventListener('click', (event) => {
-    showEditWindow();
-    let currentTitle = event.target.parentNode.parentNode.children[1].children[0];
-    let currentAuthor = event.target.parentNode.parentNode.children[1].children[1];
-    let currentYear = event.target.parentNode.parentNode.children[1].children[2];
-    document.querySelector('.editwindow-title').value = event.target.parentNode.parentNode.children[1].children[0].innerText;
-    document.querySelector('.editwindow-author').value = event.target.parentNode.parentNode.children[1].children[1].innerText;
-    document.querySelector('.editwindow-year').value = event.target.parentNode.parentNode.children[1].children[2].innerText;
-
-    let saveBtn = document.querySelector('.saveBtn')
-    saveBtn.addEventListener('click', () => {
-        currentTitle.innerText = document.querySelector('.editwindow-title').value;
-        event.target.parentNode.parentNode.children[1].children[1].innerText = document.querySelector('.editwindow-author').value;
-     //   event.target.parentNode.parentNode.children[1].children[1].innerText = document.querySelector('.editwindow-author').value;
-      //  event.target.parentNode.parentNode.children[1].children[2].innerText = document.querySelector('.editwindow-year').value;
-        hideEditWindow();
-    })
-}); */
