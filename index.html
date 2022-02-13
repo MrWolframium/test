@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="less/less.min.js"></script>  -->
+    <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
+<script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+   <!-- <link rel="stylesheets" type="text/css" href="less/styles.css" /> -->
+    
+   
+
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="showBtn" onclick="showAddWindow()">Добавить</button>
+    <div class="addwindow hidden">
+        <form action="#">
+            <input type="text" value="Автор" class="addwindow-title" required>
+            <input type="text" value="Название" class="addwindow-author" required>
+            <input type="number" value="1900" class="addwindow-year" required>
+            <button class="addBtn" onclick="addBook()">Сохранить</button>
+        </form>
+
+        <button onclick="hideAddWindow()">Отменить</button>
+    </div>
+
+
+    <div class="editwindow hidden">edit
+        <form>
+            <input type="text" value="" class="editwindow-title" required>
+            <input type="text" value="" class="editwindow-author" required>
+            <input type="text" value="" class="editwindow-year" required>
+            <input type="submit" class="saveBtn" value="Сохранить">
+        </form>
+        <button onclick="hideEditWindow()">Отменить</button>
+    </div>
+
+
+
+
+    <table class="shelf">
+        <tr class="shelf-book">
+            <td class="shelf-book-image"></td>
+            <td class="shelf-book-desc">
+                <h1>Руслан и Людмила</h1>
+                <h2>Пушкин А.С.</h2>
+                <h2>1999 г.</h2>
+            </td>
+            <td class="shelf-book-opt">
+                <button class="shelf-book-opt-edit" id="1">Редактировать</button>
+                <button class="shelf-book-opt-delete" onclick="deleteBook()">Удалить</button>
+            </td>
+        </tr>
+        <tr class="shelf-book">
+            <td class="shelf-book-image"></td>
+            <td class="shelf-book-desc">
+                <h1>Мцыри</h1>
+                <h2>Лермонтов М.Ю.</h2>
+                <h2>2001 г.</h2>
+            </td>
+            <td class="shelf-book-opt">
+                <button class="shelf-book-opt-edit" id="2">Редактировать</button>
+                <button class="shelf-book-opt-delete" onclick="deleteBook()">Удалить</button>
+            </td>
+        </tr>
+    </table>
+</body>
+<script src="script.js"></script>
+
+</html>
