@@ -1,35 +1,83 @@
+@font-face {
+    font-family: Arina;
+    src        : url(../fonts/Arina.ttf);
+}
+
 .shelf {
-    margin         : 0 auto;
-    border-collapse: collapse;
+    width           : 50%;
+    margin          : 0 auto;
+    border-spacing  : 10px;
+    font-family     : Arina;
+    background-color: rgb(250, 250, 250);
 
     &-book {
+        background-color  : rgb(245, 245, 245);
+        transition        : background-color 0.3s ease-in-out;
+        -webkit-transition: background-color 0.3s ease-in-out;
+        -moz-transition   : background-color 0.3s ease-in-out;
+        -o-transition     : background-color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: rgb(235, 235, 235);
+        }
+
         &-image {
-            width     : 200px;
-            text-align: center;
+            text-align        : center;
+            width             : 220px;
+            transition        : 0.5s;
+            -webkit-transition: 0.5s;
+            -moz-transition   : 0.5s;
+            -o-transition     : 0.5s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
 
             &-cover {
                 img {
-                    height: 300px;
-                    width : 200px;
+                    background-color: #fff;
+                    height          : 300px;
+                    width           : 200px;
                 }
             }
         }
 
         &-desc {
+            height        : 300px;
+            width         : 300px;
+            padding       : 20px;
+            display       : flex;
+            flex-direction: column;
+
             h1 {
-                margin   : 5px;
-                font-size: 14px;
+                margin   : 5px 0px;
+                font-size: 34px;
             }
 
             h2 {
-                margin   : 5px;
-                font-size: 12px;
+                margin   : 5px 0px;
+                font-size: 24px;
+            }
+
+            h3 {
+                margin   : 5px 0px;
+                font-size: 22px;
             }
         }
 
-        td {
-            width : 300px;
-            border: 1px solid black
+        &-opt {
+            button {
+                width        : 150px;
+                height       : 30px;
+                margin       : 10px;
+                border-radius: 0px;
+                border       : 1px solid rgb(141, 141, 141);
+
+                &:hover {
+                    cursor          : pointer;
+                    background-color: rgb(210, 210, 210);
+                }
+            }
         }
     }
 }
@@ -46,6 +94,7 @@
     left            : calc(50% - 350px);
     top             : 200px;
     background-color: #fff;
+    z-index         : 1;
 }
 
 .editwindow {
@@ -56,4 +105,5 @@
     left            : calc(50% - 350px);
     top             : 200px;
     background-color: #fff;
+    z-index         : 1;
 }

@@ -40,20 +40,20 @@ let initEditBtn = () => {
     for (let i = 0; i < document.getElementsByClassName('shelf-book-opt-edit').length; i++) {
         document.getElementsByClassName('shelf-book-opt-edit')[i].addEventListener('click', (event) => {
             showEditWindow()
-            let currentCover = event.target.parentNode.parentNode.children[0].firstChild.firstChild;
-            let currentTitle = event.target.parentNode.parentNode.children[1].children[0];
-            let currentAuthor = event.target.parentNode.parentNode.children[1].children[1];
-            let currentYear = event.target.parentNode.parentNode.children[1].children[2];
+            let currentCover = event.target.parentNode.parentNode.querySelector('img');
+            let currentTitle = event.target.parentNode.parentNode.querySelector('.shelf-book-desc-title');
+            let currentAuthor = event.target.parentNode.parentNode.querySelector('.shelf-book-desc-author');
+            let currentYear = event.target.parentNode.parentNode.querySelector('.shelf-book-desc-year');
             document.querySelector('.editwindow-cover').value = currentCover.getAttribute('src');
             document.querySelector('.editwindow-title').value = currentTitle.innerText;
             document.querySelector('.editwindow-author').value = currentAuthor.innerText;
-            document.querySelector('.editwindow-year').value = currentYear.innerText;
+            document.querySelector('.editwindow-year').value = currentYear.innerText.substring(0, currentYear.innerText.length-3);
             let saveBtn = document.querySelector('.saveBtn')
             saveBtn.addEventListener('click', () => {
                 currentCover.setAttribute('src', document.querySelector('.editwindow-cover').value);
                 currentTitle.innerText = document.querySelector('.editwindow-title').value;
                 currentAuthor.innerText = document.querySelector('.editwindow-author').value;
-                currentYear.innerText = document.querySelector('.editwindow-year').value;
+                currentYear.innerText = document.querySelector('.editwindow-year').value + ' г.';
                 currentTitle = '';
                 currentAuthor = '';
                 currentYear = '';
@@ -68,9 +68,9 @@ let addBook = () => {
         document.querySelector('.shelf').insertAdjacentHTML('beforeend', `<tr class="shelf-book">
         <td class="shelf-book-image"><div class="shelf-book-image-cover"><img src="${document.querySelector('.addwindow-cover').value}"></div></td>
         <td class="shelf-book-desc">
-            <h1>${document.querySelector('.addwindow-title').value}</h1>
-            <h2>${document.querySelector('.addwindow-author').value}</h2>
-            <h2>${document.querySelector('.addwindow-year').value}</h2>
+            <h1 class="shelf-book-desc-title">${document.querySelector('.addwindow-title').value}</h1>
+            <h2 class="shelf-book-desc-author">${document.querySelector('.addwindow-author').value}</h2>
+            <h3 class="shelf-book-desc-year">${document.querySelector('.addwindow-year').value} г.</h2>
         </td>
         <td class="shelf-book-opt">
             <button class="shelf-book-opt-edit">Редактировать</button>
