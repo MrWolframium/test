@@ -1,25 +1,30 @@
-
+let hideWindow = () => {
+    for (let i = 0; i < document.getElementsByClassName('modalwindow').length; i++) {
+        document.getElementsByClassName('modalwindow')[i].classList.add('hidden')
+    }
+}
 
 let showAddWindow = () => {
     document.querySelector('.addwindow').classList.remove('hidden');
-}
-
-let hideAddWindow = () => {
-    document.querySelector('.addwindow').classList.add('hidden');
 }
 
 let showEditWindow = () => {
     document.querySelector('.editwindow').classList.remove('hidden');
 }
 
-let hideEditWindow = () => {
-    document.querySelector('.editwindow').classList.add('hidden');
+let initAddBtn = () => {
+    document.querySelector('.showBtn').addEventListener('click', showAddWindow)
+}
+
+let initCancelBtn = () => {
+    for (let i = 0; i < document.getElementsByClassName('cancelBtn').length; i++) {
+        document.getElementsByClassName('cancelBtn')[i].addEventListener('click', hideWindow)
+    }
 }
 
 let initDeleteBtn = () => {
-    let deleteBtn = document.getElementsByClassName('shelf-book-opt-delete');
-    for (let i = 0; i < deleteBtn.length; i++) {
-        deleteBtn[i].addEventListener('click', (event) => {
+    for (let i = 0; i < document.getElementsByClassName('shelf-book-opt-delete').length; i++) {
+        document.getElementsByClassName('shelf-book-opt-delete')[i].addEventListener('click', (event) => {
             event.target.parentNode.parentNode.remove()
         })
     }
@@ -46,13 +51,15 @@ let initEditBtn = () => {
                 currentTitle = '';
                 currentAuthor = '';
                 currentYear = '';
-                hideEditWindow()
+                hideWindow()
             })
         })
-
-
     }
 }
+
+initAddBtn()
+
+initCancelBtn()
 
 initDeleteBtn()
 
@@ -76,7 +83,7 @@ let addBook = () => {
         </td>
     </tr>`)
 
-        hideAddWindow()
+        hideWindow()
 
         initDeleteBtn()
 
