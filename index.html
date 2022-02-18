@@ -6,34 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="less/less.min.js"></script>  -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
     <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
     <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
-    <!-- <link rel="stylesheets" type="text/css" href="less/styles.css" /> -->
-
-
-
     <title>Document</title>
 </head>
 
 <body>
     <button class="showBtn">Добавить</button>
     <div class="addwindow modalwindow hidden">
-        <img src="" height="200px" width="133" class="addwindow-preview">
+        <div class="modalwindow-heading">Добавление книги</div>
+        <img height="200" width="133" class="addwindow-preview">
         <button class="previewBtn">Превью</button>
         <form action="#">
             <input type="text" placeholder="Ссылка на обложку" class="addwindow-cover">
             <input type="text" placeholder="Автор" class="addwindow-title" required>
             <input type="text" placeholder="Название" class="addwindow-author" required>
             <input type="number" placeholder="1900" class="addwindow-year" required>
-            <button class="addBtn" onclick="addBook()">Сохранить</button>
+            <button class="addBtn">Сохранить</button>
         </form>
 
         <button class="cancelBtn">Отменить</button>
     </div>
 
 
-    <div class="editwindow modalwindow hidden">edit
-        <form>
+    <div class="editwindow modalwindow hidden">
+        <div class="modalwindow-heading">Редактирование книги</div>
+        <form action="#" class="editwindow-form">
             <input type="text" value="" class="editwindow-cover">
             <input type="text" value="" class="editwindow-title" required>
             <input type="text" value="" class="editwindow-author" required>
@@ -54,7 +54,7 @@
             <td class="shelf-book-desc">
                 <h1 class="shelf-book-desc-title">Руслан и Людмила</h1>
                 <h2 class="shelf-book-desc-author">Пушкин А.С.</h2>
-                <h3 class="shelf-book-desc-year">1999 г.</h2>
+                <h3 class="shelf-book-desc-year">1999 г.</h3>
             </td>
             <td class="shelf-book-opt">
                 <button class="shelf-book-opt-edit">Редактировать</button>
@@ -68,7 +68,7 @@
             <td class="shelf-book-desc">
                 <h1 class="shelf-book-desc-title">Мцыри</h1>
                 <h2 class="shelf-book-desc-author">Лермонтов М.Ю.</h2>
-                <h3 class="shelf-book-desc-year">2001 г.</h2>
+                <h3 class="shelf-book-desc-year">2001 г.</h3>
             </td>
             <td class="shelf-book-opt">
                 <button class="shelf-book-opt-edit">Редактировать</button>

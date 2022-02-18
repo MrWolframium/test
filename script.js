@@ -19,8 +19,12 @@ let initPreviewBtn = () => {
     document.querySelector('.previewBtn').addEventListener('click', showPreview)
 }
 
-let initAddBtn = () => {
+let initShowBtn = () => {
     document.querySelector('.showBtn').addEventListener('click', showAddWindow)
+}
+
+let initAddBtn =() => {
+    document.querySelector('.addBtn').addEventListener('click', addBook)
 }
 
 let initCancelBtn = () => {
@@ -49,7 +53,8 @@ let initEditBtn = () => {
             document.querySelector('.editwindow-author').value = currentAuthor.innerText;
             document.querySelector('.editwindow-year').value = currentYear.innerText.substring(0, currentYear.innerText.length-3);
             let saveBtn = document.querySelector('.saveBtn')
-            saveBtn.addEventListener('click', () => {
+            saveBtn.addEventListener('click', (event) => {
+                event.preventDefault();
                 currentCover.setAttribute('src', document.querySelector('.editwindow-cover').value);
                 currentTitle.innerText = document.querySelector('.editwindow-title').value;
                 currentAuthor.innerText = document.querySelector('.editwindow-author').value;
@@ -70,7 +75,7 @@ let addBook = () => {
         <td class="shelf-book-desc">
             <h1 class="shelf-book-desc-title">${document.querySelector('.addwindow-title').value}</h1>
             <h2 class="shelf-book-desc-author">${document.querySelector('.addwindow-author').value}</h2>
-            <h3 class="shelf-book-desc-year">${document.querySelector('.addwindow-year').value} г.</h2>
+            <h3 class="shelf-book-desc-year">${document.querySelector('.addwindow-year').value} г.</h3>
         </td>
         <td class="shelf-book-opt">
             <button class="shelf-book-opt-edit">Редактировать</button>
@@ -87,7 +92,7 @@ let addBook = () => {
     }
 }
 
-initAddBtn()
+initShowBtn()
 
 initCancelBtn()
 
@@ -96,3 +101,5 @@ initDeleteBtn()
 initEditBtn()
 
 initPreviewBtn()
+
+initAddBtn()

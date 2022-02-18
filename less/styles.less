@@ -3,11 +3,14 @@
     src        : url(../fonts/Arina.ttf);
 }
 
+button {
+    font-family: Helvetica;
+}
+
 .shelf {
     width           : 50%;
     margin          : 0 auto;
     border-spacing  : 10px;
-    font-family     : Arina;
     background-color: rgb(250, 250, 250);
 
     &-book {
@@ -48,6 +51,7 @@
             padding       : 20px;
             display       : flex;
             flex-direction: column;
+            font-family   : Arina;
 
             h1 {
                 margin   : 5px 0px;
@@ -87,23 +91,35 @@
 }
 
 .addwindow {
-    border          : 1px solid #000;
-    height          : 300px;
     width           : 700px;
-    position        : absolute;
     left            : calc(50% - 350px);
-    top             : 200px;
-    background-color: #fff;
-    z-index         : 1;
 }
 
 .editwindow {
+    width: 25%;
+    left            : 50%;
+    &-form {
+        border: 1px solid black;
+    }
+}
+
+.modalwindow {
     border          : 1px solid #000;
     height          : 300px;
-    width           : 700px;
+    
     position        : absolute;
-    left            : calc(50% - 350px);
+    
     top             : 200px;
     background-color: #fff;
     z-index         : 1;
+    font-family     : Helvetica;
+    padding         : 10px;
+
+    &-heading {
+        padding         : 5px;
+        background-color: rgb(141, 141, 141);
+        color           : white;
+
+    }
+
 }
