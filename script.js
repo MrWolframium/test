@@ -70,6 +70,7 @@ let initEditBtn = () => {
                 currentTitle.innerText = document.querySelector('.editwindow-title').value;
                 currentAuthor.innerText = document.querySelector('.editwindow-author').value;
                 currentYear.innerText = document.querySelector('.editwindow-year').value + ' г.';
+                currentCover = '';
                 currentTitle = '';
                 currentAuthor = '';
                 currentYear = '';
