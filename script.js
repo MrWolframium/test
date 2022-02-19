@@ -1,18 +1,21 @@
-let hideWindow = () => {
-    for (let i = 0; i < document.getElementsByClassName('modalwindow').length; i++)
-        document.getElementsByClassName('modalwindow')[i].classList.add('hidden')
-}
-
 let showAddWindow = () => {
     document.querySelector('.addwindow').classList.remove('hidden');
+}
+
+let hideAddWindow = () => {
+    document.querySelector('.addwindow').classList.add('hidden');
 }
 
 let showEditWindow = () => {
     document.querySelector('.editwindow').classList.remove('hidden');
 }
 
+let hideEditWindow = () => {
+    document.querySelector('.editwindow').classList.add('hidden');
+}
+
 let showPreview = () => {
-    document.querySelector('.addwindow-preview').setAttribute('src', document.querySelector('.addwindow-cover').value);
+    document.querySelector('.addwindow-preview-cover').setAttribute('src', document.querySelector('.addwindow-cover').value);
 }
 
 let initPreviewBtn = () => {
@@ -30,6 +33,14 @@ let initAddBtn =() => {
 let initCancelBtn = () => {
     for (let i = 0; i < document.getElementsByClassName('cancelBtn').length; i++)
         document.getElementsByClassName('cancelBtn')[i].addEventListener('click', hideWindow)
+}
+
+let initCancelAddBtn = () => {
+    document.querySelector('.cancelAddBtn').addEventListener('click', hideAddWindow)
+}
+
+let initCancelEditBtn = () => {
+    document.querySelector('.cancelEditBtn').addEventListener('click', hideEditWindow)
 }
 
 let initDeleteBtn = () => {
@@ -62,7 +73,7 @@ let initEditBtn = () => {
                 currentTitle = '';
                 currentAuthor = '';
                 currentYear = '';
-                hideWindow()
+                hideEditWindow()
             })
         })
     }
@@ -82,7 +93,7 @@ let addBook = () => {
             <button class="shelf-book-opt-delete">Удалить</button>
         </td>
     </tr>`)
-        hideWindow()
+        hideAddWindow()
         initDeleteBtn()
         initEditBtn()
         document.querySelector('.addwindow-cover').value = '';
@@ -94,7 +105,9 @@ let addBook = () => {
 
 initShowBtn()
 
-initCancelBtn()
+initCancelAddBtn()
+
+initCancelEditBtn()
 
 initDeleteBtn()
 

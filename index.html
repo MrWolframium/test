@@ -10,24 +10,27 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
     <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
     <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
-    <title>Document</title>
+    <title>Bookshelf</title>
 </head>
 
 <body>
-    <button class="showBtn">Добавить</button>
+    <button class="showBtn">Добавить книгу</button>
     <div class="addwindow modalwindow hidden">
         <div class="modalwindow-heading">Добавление книги</div>
-        <img height="200" width="133" class="addwindow-preview">
-        <button class="previewBtn">Превью</button>
-        <form action="#">
-            <input type="text" placeholder="Ссылка на обложку" class="addwindow-cover">
-            <input type="text" placeholder="Автор" class="addwindow-title" required>
-            <input type="text" placeholder="Название" class="addwindow-author" required>
-            <input type="number" placeholder="1900" class="addwindow-year" required>
-            <button class="addBtn">Сохранить</button>
-        </form>
-
-        <button class="cancelBtn">Отменить</button>
+        <div class="addwindow-container">
+            <div class="addwindow-preview">
+                <img height="200" width="133" class="addwindow-preview-cover">
+                <button class="previewBtn">Превью</button>
+            </div>
+            <form action="#">
+                <input type="text" placeholder="Ссылка на обложку" class="addwindow-cover">
+                <input type="text" placeholder="Автор" class="addwindow-title" required>
+                <input type="text" placeholder="Название" class="addwindow-author" required>
+                <input type="number" placeholder="1900" class="addwindow-year" required>
+                <button class="addBtn">Сохранить</button>
+            </form>
+        </div>
+        <button class="cancelAddBtn">Отменить</button>
     </div>
 
 
@@ -40,7 +43,7 @@
             <input type="number" value="" class="editwindow-year" required>
             <input type="submit" class="saveBtn" value="Сохранить">
         </form>
-        <button class="cancelBtn">Отменить</button>
+        <button class="cancelEditBtn">Отменить</button>
     </div>
 
 
